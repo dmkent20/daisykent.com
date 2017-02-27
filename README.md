@@ -1,42 +1,24 @@
-# daisykent.com
-##Website Build
+# README
 
-Daisy Blog
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-CV section page and pdf link
+Things you may want to cover:
 
-Portfolio page
+* Ruby version
 
-Portfolio page with 
+* System dependencies
 
-About me
+* Configuration
 
-Contact me page
+* Database creation
 
-Blog
+* Database initialization
 
-Social Media 
+* How to run the test suite
 
-Copyright 
+* Services (job queues, cache servers, search engines, etc.)
 
-Credit for making website with link to my website
+* Deployment instructions
 
-Gif 
-
-Blog clicks, comments and likes  analytics
-
-Search 
-
-Subscribe newsletter
-
-Continue reading, bottom center
-
-Tags
-
-Older and Newer link btns 
-
-Instagram block https://amelialiana.com/2017/02/chanel-coco-codes/
-Follow insta
-
-Fixed navigation with social media links
-
+* ...

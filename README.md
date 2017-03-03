@@ -1,24 +1,31 @@
-# README
+# Daisy's Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+:construction: Making daisy's blog :construction:
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+### To be implemented
+* Pages: About, Blog etc.
+* Category filtering
+* Search bar
+* Creating and viewing posts
+* Blog editor area completely seperate from main page for more customization and options
+* Recording data with Google Analytics and custon click count info
+* Social Media links
+* Image upload
+* Ad services
+* Message blog author button
 
-* System dependencies
+## Technologies
 
-* Configuration
-
+* Ruby version: 
+* Ruby on Rails 5.0
+* PostgreSQL
 * Database creation
-
 * Database initialization
-
-* How to run the test suite
-
+* RSpec
+* HTML(.erb)
 * Services (job queues, cache servers, search engines, etc.)
-
 * Deployment instructions
 
 * ...

@@ -1,1 +1,14 @@
-Time to write your first post :D
+
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+    <%= link_to 'Review', post_path(post) %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Remove', post_path(post), method: :delete %>
+  <% end %>
+<% else %>
+  <p> Time to write your first post :D </p>
+<% end %>
+
+<a href='<%= new_post_path %>'>Create new post</a>

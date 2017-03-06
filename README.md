@@ -6,9 +6,14 @@
 :construction: Making daisy's blog :construction:
 
 ## Features
+* Blog
+* Seperate admin area for creating posts
 
 ### To be implemented
-* Pages: About, Blog etc.
+* Pages: About, Videos
+* Changeable header images
+* Video uploading
+* Text formatter
 * Category filtering
 * Search bar
 * Creating and viewing posts
@@ -28,7 +33,3 @@
 * Database initialization
 * RSpec
 * HTML(.erb)
-* Services (job queues, cache servers, search engines, etc.)
-* Deployment instructions
-
-* ...

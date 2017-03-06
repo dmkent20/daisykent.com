@@ -50,4 +50,20 @@ feature 'posts' do
       expect(current_path).to eq "/posts/#{gucci.id}"
     end
   end
+
+  context 'editing posts' do
+
+    before { Post.create title: 'Gucci Bag', content: 'So pretty', id: 1 }
+
+    scenario 'lets admin edit a post' do
+      visit '/posts'
+      click_link 'Edit'
+      fill_in 'Title', with: 'Suede Gucci Bag'
+      fill_in 'Content', with: 'So beautiful but costs $$$'
+      click_button 'Update Post'
+      expect(current_path).to eq '/posts/1'
+      expect(page).to have_content 'Suede Gucci Bag'
+      expect(page).to have_content 'So beautiful but costs $$$'
+    end
+  end
 end

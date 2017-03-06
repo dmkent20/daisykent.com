@@ -21,7 +21,7 @@
 
 ## Technologies
 
-* Ruby version:
+* Ruby version: 2.3.0
 * Ruby on Rails 5.0
 * PostgreSQL
 * Database creation

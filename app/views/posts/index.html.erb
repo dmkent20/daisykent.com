@@ -5,6 +5,7 @@
     <p><%= post.content %></p>
     <%= link_to 'Review', post_path(post) %>
     <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Remove', post_path(post), method: :delete %>
   <% end %>
 <% else %>
   <p> Time to write your first post :D </p>

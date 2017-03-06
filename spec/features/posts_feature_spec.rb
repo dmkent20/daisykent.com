@@ -66,4 +66,16 @@ feature 'posts' do
       expect(page).to have_content 'So beautiful but costs $$$'
     end
   end
+
+  context 'deleting posts' do
+
+    before { Post.create title: 'Hello Kitty', content: 'So cute' }
+
+    scenario 'admin can remove a post' do
+      visit '/posts'
+      click_link 'Remove'
+      expect(page).not_to have_content 'Hello Kitty'
+      expect(page).to have_content 'Post successfully removed'
+    end
+  end
 end

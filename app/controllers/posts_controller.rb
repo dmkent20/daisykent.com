@@ -28,6 +28,14 @@ class PostsController < ApplicationController
     redirect_to '/posts/' + @post.id.to_s
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = 'Post successfully removed'
+
+    redirect_to '/posts'
+  end
+
   private
 
   def post_params

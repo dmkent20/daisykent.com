@@ -1,7 +1,8 @@
 
-<% if Post.all.any? %>
-  <% Post.all.each do |post| %>
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
     <h2><%= post.title %></h2>
+    <%= link_to 'Review', post_path(post) %>
   <% end %>
 <% else %>
   <p> Time to write your first post :D </p>

@@ -38,4 +38,16 @@ feature 'posts' do
       expect(page).not_to have_content('Time to write your first post :D')
     end
   end
+
+  context 'viewing posts' do
+
+    let!(:gucci){ Post.create(title:'Gucci Bag') }
+
+    scenario 'lets admin view full post' do
+      visit '/posts'
+      click_link 'Review'
+      expect(page).to have_content 'Gucci Bag'
+      expect(current_path).to eq "/posts/#{gucci.id}"
+    end
+  end
 end

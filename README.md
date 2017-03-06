@@ -1,5 +1,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/dmkent20/daisykent.com/badge.svg?branch=posts)](https://coveralls.io/github/dmkent20/daisykent.com?branch=posts)
 [![Build Status](https://travis-ci.org/dmkent20/daisykent.com.svg?branch=master)](https://travis-ci.org/dmkent20/daisykent.com)
+[![Code Climate](https://codeclimate.com/github/dmkent20/daisykent.com.png)](https://codeclimate.com/github/dmkent20/daisykent.com)
 
 # Daisy's Blog
 

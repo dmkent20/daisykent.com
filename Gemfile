@@ -39,8 +39,10 @@ gem 'pg'
 # gem 'capistrano-rails', group: :development
 
 group :test do
+  gem 'coveralls', require: false
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'rake'
 end
 
 group :development, :test do

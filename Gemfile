@@ -41,6 +41,7 @@ gem 'pg'
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'rake'
 end
 
 group :development, :test do

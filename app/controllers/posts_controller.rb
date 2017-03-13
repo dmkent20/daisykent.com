@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @posts = Post.all
@@ -10,7 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to '/posts'
+    redirect_to posts_path
   end
 
   def show
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.update(post_params)
 
-    redirect_to '/posts/' + @post.id.to_s
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -33,7 +34,7 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = 'Post successfully removed'
 
-    redirect_to '/posts'
+    redirect_to posts_path
   end
 
   private

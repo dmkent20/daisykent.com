@@ -31,6 +31,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Postgresql
 gem 'pg'
+# Image uploader
+gem 'carrierwave', '~> 1.0'
+# Image resizing support
+gem 'mini_magick', '~> 4.3'
 # Visual text editor
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

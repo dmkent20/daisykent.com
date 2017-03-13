@@ -1,6 +1,7 @@
 
 <% if @posts.any? %>
   <% @posts.each do |post| %>
+    <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
     <h2><%= post.title %></h2>
     <p><%= post.content %></p>
     <%= link_to 'Review', post_path(post) %>

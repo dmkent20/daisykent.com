@@ -1,0 +1,14 @@
+
+<% if @videos.any? %>
+  <% @videos.each do |video| %>
+    <h2><%= video.title %></h2>
+    <p><%= video.description %></p>
+    <%= link_to 'Review', video_path(video) %>
+    <%= link_to 'Edit', edit_video_path(video) %>
+    <%= link_to 'Remove', video_path(video), method: :delete %>
+  <% end %>
+<% else %>
+  <p> Time to upload your first video :D </p>
+<% end %>
+
+<a href='<%= new_video_path %>'>Create new video</a>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+
   root 'main#home'
 
   get 'home' => 'main#home'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   get 'videos' => 'main#videos'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'admin/posts' => 'posts#index'
+  scope '/admin' do
     resources :posts
+  end
 end

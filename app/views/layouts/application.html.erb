@@ -9,7 +9,9 @@
   </head>
 
   <body>
-    <%= notice %>
+    <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %> 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

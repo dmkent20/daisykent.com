@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
   def create
-    @category = Category.create(category_params)
     @post = Post.new
-    if @category.save
-      render '/posts/new'
-    else
+    @category = Category.create(category_params)
+    respond_to do |format|
+      if @category.save
+        format.js
+      else
+      end
     end
   end
 

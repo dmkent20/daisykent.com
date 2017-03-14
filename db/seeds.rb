@@ -11,4 +11,4 @@ Category.create(name: 'Food')
 Category.create(name: 'Health')
 Category.create(name: 'Fasion')
 
-Admin.create(email: "test", password: 'test')
+Admin.create(email: "test@test.com", password: 'test')

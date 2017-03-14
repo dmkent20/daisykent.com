@@ -20,4 +20,4 @@
 .coveralls.yml
 
 # Custom ignore
-db/seeds.rb
+# db/seeds.rb

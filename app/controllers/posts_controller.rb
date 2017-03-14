@@ -11,7 +11,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to posts_path
+    params[:post][:category_ids] ||=[]
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render :new
+    end
   end
 
   def show
@@ -24,9 +29,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-
-    redirect_to post_path(@post)
+    params[:post][:category_ids] ||=[]
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -40,6 +48,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :blogheader)
+    params.require(:post).permit(:title, :content, :blogheader, {category_ids: []})
   end
 end

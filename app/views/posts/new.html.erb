@@ -6,4 +6,10 @@
   <%= f.label :content %>
   <%= f.text_area :content %>
   <%= f.submit "Post!" %>
+  <% for category in Category.all %>
+    <div class="">
+      <%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
+      <%= category.name %>
+    </div>
+  <% end %>
 <% end %>

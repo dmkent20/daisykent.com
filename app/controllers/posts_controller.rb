@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @category = Category.new
+    @categories = Category.all
   end
 
   def create
@@ -26,6 +28,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @category = Category.new
+    @categories = Category.all
   end
 
   def update

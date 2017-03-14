@@ -1,3 +1,4 @@
 <div class="header"><%= image_tag @post.blogheader.full.url %></div>
 <p><%= @post.title %></p>
 <p><%= @post.content %></p>
+<p> Categories: <%= @post.categories.map(&:name).join(' ') %> </p>

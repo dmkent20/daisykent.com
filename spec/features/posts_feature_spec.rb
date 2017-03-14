@@ -34,7 +34,7 @@ feature 'posts' do
       fill_in 'Title', with: 'Gucci Bag'
       click_button 'Post!'
       expect(page).to have_content 'Gucci Bag'
-      expect(current_path).to eq '/admin/posts'
+      expect(current_path).to include '/admin/posts/'
     end
   end
 

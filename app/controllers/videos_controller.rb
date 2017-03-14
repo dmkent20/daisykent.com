@@ -11,8 +11,10 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.create(video_params)
+    params[:video][:category_ids] ||=[]
     if @video.save
       redirect_to videos_path
+      flash[:notice] = 'Video successfully uploaded'
     else
       flash[:notice] = 'Please enter a valid link and title'
       render 'new'
@@ -29,9 +31,10 @@ class VideosController < ApplicationController
 
   def update
     @video = Video.find(params[:id])
-    @video.update(video_params)
-    if @video.save
+    params[:video][:category_ids] ||=[]
+    if @video.update(video_params)
       redirect_to videos_path
+      flash[:notice] = 'Video successfully updated'
     else
       flash[:notice] = 'Please enter a valid link and title'
       render 'edit'
@@ -42,13 +45,12 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @video.destroy
     flash[:notice] = 'Video successfully removed'
-
     redirect_to videos_path
   end
 
   private
 
   def video_params
-    params.require(:video).permit(:title, :description, :ytlink)
+    params.require(:video).permit(:title, :description, :ytlink, {category_ids: []})
   end
 end

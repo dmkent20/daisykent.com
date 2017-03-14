@@ -4,9 +4,18 @@
     <h2><%= video.title %></h2>
     <p><%= video.description %></p>
     <iframe id="ytplayer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/<%= video.ytlink %>" frameborder="0"></iframe>
-    <%= link_to 'Review', video_path(video) %>
-    <%= link_to 'Edit', edit_video_path(video) %>
-    <%= link_to 'Remove', video_path(video), method: :delete %>
+    <p> Categories:
+      <% if video.categories.any? %>
+        <%= video.categories.map(&:name).join(' ') %>
+      <% else %>
+        Uncategorized
+      <% end %>  
+    </p>
+    <p>
+      <%= link_to 'Review', video_path(video) %>
+      <%= link_to 'Edit', edit_video_path(video) %>
+      <%= link_to 'Remove', video_path(video), method: :delete %>
+    </p>
   <% end %>
 <% else %>
   <p> Time to upload your first video :D </p>

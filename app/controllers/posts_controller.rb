@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     params[:post][:category_ids] ||=[]
     if @post.save
       redirect_to post_path(@post)
+      flash[:notice] = 'Post successfully created'
     else
       render :new
     end
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
     params[:post][:category_ids] ||=[]
     if @post.update(post_params)
       redirect_to post_path(@post)
+      flash[:notice] = 'Post successfully updated'
     else
       render :edit
     end

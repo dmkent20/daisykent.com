@@ -7,9 +7,15 @@
   <%= f.text_area :content %>
   <%= f.submit "Post!" %>
   <% for category in Category.all %>
-    <div class="">
+    <div class="category">
       <%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
       <%= category.name %>
     </div>
   <% end %>
+<% end %>
+
+<%= form_for @category, remote: true do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
 <% end %>

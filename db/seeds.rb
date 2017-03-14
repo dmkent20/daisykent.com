@@ -10,5 +10,8 @@ Category.create(name: 'Lifestyle')
 Category.create(name: 'Food')
 Category.create(name: 'Health')
 Category.create(name: 'Fasion')
+<<<<<<< HEAD
 
 Admin.create(email: "test@test.com", password: 'test')
+=======
+>>>>>>> 0fe7c11f7bfe56542fa0310e65a0efb90c84b707

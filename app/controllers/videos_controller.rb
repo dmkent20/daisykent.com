@@ -11,7 +11,12 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.create(video_params)
-    redirect_to videos_path
+    if @video.save
+      redirect_to videos_path
+    else
+      flash[:notice] = 'Please enter a valid link and title'
+      render 'new'
+    end
   end
 
   def show
@@ -25,8 +30,12 @@ class VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
     @video.update(video_params)
-
-    redirect_to video_path(@video)
+    if @video.save
+      redirect_to videos_path
+    else
+      flash[:notice] = 'Please enter a valid link and title'
+      render 'edit'
+    end
   end
 
   def destroy

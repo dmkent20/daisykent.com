@@ -32,16 +32,28 @@ feature 'videos' do
       visit '/admin/videos'
       click_link 'Create new video'
       fill_in 'Title', with: 'Gucci Bag'
+      fill_in 'Ytlink', with: 'iRXJXaLV0n4'
       click_button 'Post!'
       expect(page).to have_content 'Gucci Bag'
       expect(current_path).to eq '/admin/videos'
+    end
+
+    scenario 'admin can not create a new video without adding a link' do
+      admin_sign_in
+      visit '/admin/videos'
+      click_link 'Create new video'
+      fill_in 'Title', with: 'Cute cats'
+      click_button 'Post!'
+      expect(page).to have_content 'Please enter a valid link and title'
+      expect(page).not_to have_content 'Cute cats'
     end
   end
 
   context 'videos have been created' do
 
     before do
-      Video.create(title: 'Shoes')
+      Video.create(title: 'Shoes',
+                   ytlink: 'iRXJXaLV0n4')
     end
 
     scenario 'display videos' do
@@ -54,7 +66,8 @@ feature 'videos' do
 
   context 'viewing videos' do
 
-    let!(:gucci){ Video.create(title:'Gucci Bag') }
+    let!(:gucci){ Video.create(title:'Gucci Bag',
+                               ytlink: 'iRXJXaLV0n4')}
 
     scenario 'lets admin view full video' do
       admin_sign_in
@@ -67,7 +80,10 @@ feature 'videos' do
 
   context 'editing videos' do
 
-    before { Video.create title: 'Gucci Bag', description: 'So pretty', id: 1 }
+    before { Video.create title: 'Gucci Bag',
+                          description: 'So pretty',
+                          ytlink: 'iRXJXaLV0n4',
+                          id: 1 }
 
     scenario 'lets admin edit a video' do
       admin_sign_in
@@ -75,16 +91,19 @@ feature 'videos' do
       click_link 'Edit'
       fill_in 'Title', with: 'Suede Gucci Bag'
       fill_in 'Description', with: 'So beautiful but costs $$$'
+      fill_in 'Ytlink', with: "0OzDgi0zqJU"
       click_button 'Update Video'
-      expect(current_path).to eq '/admin/videos/1'
       expect(page).to have_content 'Suede Gucci Bag'
       expect(page).to have_content 'So beautiful but costs $$$'
+      expect(current_path).to eq '/admin/videos'
     end
   end
 
   context 'deleting videos' do
 
-    before { Video.create title: 'Hello Kitty', description: 'So cute' }
+    before { Video.create title: 'Hello Kitty',
+                          description: 'So cute',
+                          ytlink: 'iRXJXaLV0n4'}
 
     scenario 'admin can remove a video' do
       admin_sign_in

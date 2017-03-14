@@ -9,16 +9,17 @@
 ## Features
 * Blog
 * Seperate admin area for creating posts
+* Viewer pages: Home, About, Blog, Videos, Contact, Postfolio
+* Image upload with carrierwave
+* Changeable header images
+* Embedded Youtube videos for vlog
+* Creating and viewing posts
+* Admin area for posting and uploading seperate from viewer pages
 
 ### To be implemented
-* Pages: About, Videos
-* Changeable header images
-* Video uploading
 * Text formatter
 * Category filtering
 * Search bar
-* Creating and viewing posts
-* Blog editor area completely seperate from main page for more customization and options
 * Recording data with Google Analytics and custon click count info
 * Social Media links
 * Image upload
@@ -30,7 +31,5 @@
 * Ruby version: 2.3.0
 * Ruby on Rails 5.0
 * PostgreSQL
-* Database creation
-* Database initialization
 * RSpec
 * HTML(.erb)

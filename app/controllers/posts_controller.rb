@@ -13,11 +13,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+    @category = Category.new
+    @categories = Category.all
     params[:post][:category_ids] ||=[]
     if @post.save
       redirect_to post_path(@post)
       flash[:notice] = 'Post successfully created'
     else
+      flash[:notice] = 'Please enter a valid title'
       render :new
     end
   end

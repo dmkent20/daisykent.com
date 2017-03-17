@@ -6,10 +6,9 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
   <%= f.submit "Post!" %>
-  <% for category in Category.all %>
-    <div class="">
-      <%= check_box_tag "video[category_ids][]", category.id, @video.categories.include?(category), { id: dom_id(category, dom_id(@video)) } %>
-      <%= category.name %>
-    </div>
-  <% end %>
+  <ul id="categories">
+    <%= render 'category' %>
+  </ul>
 <% end %>
+
+<%= render partial: 'categories/categoryform' %>

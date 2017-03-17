@@ -7,12 +7,8 @@
   <%= f.text_area :content %>
   <%= f.submit %>
   <ul id="categories">
-    <%= render @categories %>
+    <%= render "category" %>
   </ul>
 <% end %>
 
-<%= form_for @category, remote: true do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'categories/categoryform' %>

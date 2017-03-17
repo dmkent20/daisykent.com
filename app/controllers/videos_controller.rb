@@ -7,17 +7,21 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    @category = Category.new
+    @categories = Category.all
   end
 
   def create
     @video = Video.create(video_params)
+    @category = Category.new
+    @categories = Category.all
     params[:video][:category_ids] ||=[]
     if @video.save
-      redirect_to videos_path
+      redirect_to video_path(@video)
       flash[:notice] = 'Video successfully uploaded'
     else
       flash[:notice] = 'Please enter a valid link and title'
-      render 'new'
+      render :new
     end
   end
 
@@ -27,17 +31,18 @@ class VideosController < ApplicationController
 
   def edit
     @video = Video.find(params[:id])
+    @category = Category.new
+    @categories = Category.all
   end
 
   def update
     @video = Video.find(params[:id])
     params[:video][:category_ids] ||=[]
     if @video.update(video_params)
-      redirect_to videos_path
+      redirect_to video_path(@video)
       flash[:notice] = 'Video successfully updated'
     else
-      flash[:notice] = 'Please enter a valid link and title'
-      render 'edit'
+      render :edit
     end
   end
 

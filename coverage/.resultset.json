@@ -658,6 +658,7 @@
       ],
       "/home/frunez/Desktop/daisy_blog/daisykent.com/app/models/admin.rb": [
         1,
+        1,
         null,
         null,
         1,
@@ -1024,6 +1025,8 @@
         1,
         1,
         1,
+        null,
+        1,
         null
       ],
       "/home/frunez/Desktop/daisy_blog/daisykent.com/app/controllers/posts_controller.rb": [
@@ -1168,6 +1171,6 @@
         null
       ]
     },
-    "timestamp": 1489795512
+    "timestamp": 1489796583
   }
 }

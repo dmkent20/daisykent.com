@@ -1,1 +1,8 @@
-<%= collection_check_boxes(:post, :category_ids, @categories, :id, :name) %>
+<% for category in @categories %>
+<div>
+  <label for='category_name'>
+  <%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
+  <%= category.name %></label>
+  <%= link_to "x", category, remote: true, method: :delete, data: {confirm: "Are you sure?"}  %>
+</div>
+<% end %>

@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DaisykentCom</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <%= csrf_meta_tags %>
+        <title>DaisykentCom</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+    <body>
+        <div class="row">
+            <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %>
+            <% if admin_signed_in? %>
+            <%= link_to 'Videos', videos_path %>
+            <%= link_to 'Posts', posts_path %>
+            <% end %>
+        </div>
+        <div class="row">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+        </div>
+
+    </body>
 </html>

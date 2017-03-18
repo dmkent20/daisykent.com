@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DaisykentCom</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>DaisykentCom</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <h1>Daisy Kent</h1>
-    <%= link_to 'About', about_path %>
-    <%= notice %>
-    <%= yield %>
-  </body>
+    <body>
+      <div class="navbar navbar-inverse bg-inverse">
+              <div class="container d-flex justify-content-between">
+        <div class="row">
+            <div id="content" class="col-sm-9">
+                <a href="#" class="navbar-brand">Daisy Kent</a>
+            </div>
+        </div>
+      </div>
+        
+      </div>
+
+
+        <div class="row">
+            <div class="row">
+                <%= link_to 'Home', about_path %>
+                <%= link_to 'About', about_path %>
+                <%= link_to 'Blog', about_path %>
+                <%= link_to 'Videos', about_path %>
+                <%= link_to 'Contact', about_path %>
+                <%= link_to 'Portfolio', about_path %>
+                <%= notice %>
+                <%= yield %>
+            </div>
+        </div>
+    </body>
 </html>

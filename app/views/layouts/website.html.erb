@@ -9,28 +9,34 @@
     </head>
 
     <body>
-      <div class="navbar navbar-inverse bg-inverse">
-              <div class="container d-flex justify-content-between">
-        <div class="row">
-            <div id="content" class="col-sm-9">
-                <a href="#" class="navbar-brand">Daisy Kent</a>
+        <section class="jumbotron text-center">
+            <div class="container">
+                    <h1 class="jumbotron-heading">
+                        <a href="#">Daisy Kent</a>
+                </h1>
+            </div>
+        </section>
+        <%= notice %>
+        <div class="navbar navbar-inverse bg-inverse text-center">
+            <div class="container d-flex justify-content-between">
+                <div class="row">
+                    <div id="content" class="">
+                        <%= link_to 'Home', home_path %>
+                        <%= link_to 'About', about_path %>
+                        <%= link_to 'Blog', blog_path %>
+                        <%= link_to 'Videos', vlog_path %>
+                        <%= link_to 'Contact', contact_path %>
+                        <%= link_to 'Portfolio', portfolio_path %>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-        
-      </div>
-
 
         <div class="row">
-            <div class="row">
-                <%= link_to 'Home', about_path %>
-                <%= link_to 'About', about_path %>
-                <%= link_to 'Blog', about_path %>
-                <%= link_to 'Videos', about_path %>
-                <%= link_to 'Contact', about_path %>
-                <%= link_to 'Portfolio', about_path %>
-                <%= notice %>
-                <%= yield %>
+            <div class="container">
+              <div class="col-sm-9">
+                    <%= yield %>
+                </div>
             </div>
         </div>
     </body>

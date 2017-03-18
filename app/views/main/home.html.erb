@@ -1,11 +1,29 @@
-<h1>Home</h1>
-
-<% if @posts.any? %>
-  <% @posts.each do |post| %>
-    <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
-    <h2><%= post.title %></h2>
-    <p><%= post.content %></p>
-  <% end %>
+<div class="row">
+    <div id="content" class="col-sm-9">
+        <h1 id="page-header">Home</h1>
+    </div>
+</div>
+<div id="main-container" class="container">
+    <% if @posts.any? %>
+    <div class="row">
+        <div id="content" class="col-sm-9">
+            <div class="header"><%= image_tag @posts.last.blogheader.thumb.url %></div>
+            <h2><%= @posts.last.title %></h2>
+            <p><%= @posts.last.content %></p>
+        </div>
+    </div>
+    <div class="row">
+        <% @posts.reverse[1..2].each do |post| %>
+        <div id="content" class="col-sm-4">
+            <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
+            <h2><%= post.title %></h2>
+            <p><%= post.content %></p>
+        </div>
+        <% end %>
+    </div>
 <% else %>
-  <p> There are currently no posts :disappointed: </p>
-<% end %>
+    <p>
+        There are currently no posts :disappointed:
+    </p>
+    <% end %>
+</div>

@@ -15,6 +15,8 @@
 * Embedded Youtube videos for vlog
 * Creating and viewing posts
 * Admin area for posting and uploading seperate from viewer pages
+* Creating assigning and removing categories without refresh
+* Image upload
 
 ### To be implemented
 * Text formatter
@@ -22,7 +24,6 @@
 * Search bar
 * Recording data with Google Analytics and custon click count info
 * Social Media links
-* Image upload
 * Ad services
 * Message blog author button
 

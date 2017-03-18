@@ -260,7 +260,8 @@
         null,
         null,
         null,
-        null
+        null,
+        1
       ],
       "/home/frunez/Desktop/daisy_blog/daisykent.com/config/initializers/backtrace_silencers.rb": [
         null,
@@ -940,6 +941,7 @@
         null,
         1,
         22,
+        22,
         null,
         null,
         1,
@@ -1171,6 +1173,6 @@
         null
       ]
     },
-    "timestamp": 1489796583
+    "timestamp": 1489846269
   }
 }

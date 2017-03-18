@@ -3,6 +3,7 @@ class MainController < ApplicationController
 
   def home
     @posts = Post.all
+    @post = Post.last
   end
 
   def about

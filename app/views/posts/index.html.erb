@@ -1,29 +1,29 @@
 <div class="container">
-  <div class="content">
-    <% if @posts.any? %>
-    <% @posts.each do |post| %>
-    <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
-    <h2><%= post.title %></h2>
-    <p><%= post.content[1..750]%>...</p>
-    <p>
-      Categories:
-      <% if post.categories.any? %>
-      <%= post.categories.map(&:name).join(' ') %>
+    <div class="content">
+      <% if @posts.any? %>
+        <% @posts.each do |post| %>
+        <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
+        <h2><%= post.title %></h2>
+        <p><%= truncate(post.content, :length => 750) %> <%= link_to '(continue)', post_path(post) %></p>
+        <p>
+            Categories:
+            <% if post.categories.any? %>
+              <%= post.categories.map(&:name).join(' ') %>
+            <% else %>
+              Uncategorized
+        <% end %>
+        </p>
+        <p>
+            <%= link_to 'Review', post_path(post) %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Remove', post_path(post), method: :delete %>
+        </p>
+        <% end %>
       <% else %>
-      Uncategorized
+        <p>
+            Time to write your first post :D
+        </p>
       <% end %>
-    </p>
-    <p>
-      <%= link_to 'Review', post_path(post) %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Remove', post_path(post), method: :delete %>
-    </p>
-    <% end %>
-    <% else %>
-    <p>
-      Time to write your first post :D
-    </p>
-    <% end %>
-    <a href='<%= new_post_path %>'>Create new post</a>
-  </div>
+        <a href='<%= new_post_path %>'>Create new post</a>
+    </div>
 </div>

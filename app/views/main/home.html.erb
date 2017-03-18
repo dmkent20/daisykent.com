@@ -1,23 +1,25 @@
 <div class="row">
-    <div id="content" class="col-sm-9">
+    <div id="content">
         <h1 id="page-header">Home</h1>
     </div>
 </div>
-<div id="main-container" class="container">
+<div class="container">
     <% if @posts.any? %>
     <div class="row">
-        <div id="content" class="col-sm-9">
+        <div id="content" class="col-sm-8">
             <div class="header"><%= image_tag @post.blogheader.thumb.url %></div>
             <h2><%= @post.title %></h2>
-            <p><%= truncate(@post.content, :length => 750) %> <%= link_to '(continue)', post_path(@post) %></p>
+            <p><%= truncate(@post.content, :length => 750) %>
+                <%= link_to '(continue)', 'blogpost/' + @post.id.to_s %></p>
         </div>
     </div>
     <div class="row">
-        <% @posts.reverse[1..2].each do |post| %>
+        <% @posts[1..2].each do |post| %>
         <div id="content" class="col-sm-4">
             <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
             <h2><%= post.title %></h2>
-            <p><%= truncate(post.content, :length => 300) %> <%= link_to '(continue)', post_path(post) %></p>
+            <p><%= truncate(post.content, :length => 300) %>
+                <%= link_to '(continue)', 'blogpost/' + post.id.to_s %></p>
         </div>
         <% end %>
     </div>

@@ -1,0 +1,13 @@
+<%= form_for @post do |f| %>
+  <%= f.label :blogheader %><br>
+  <%= f.file_field :blogheader %><br>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :content %><br>
+  <%= f.cktext_area :content, class: 'ckeditor', ckeditor: { language: 'gb'} %><br>
+  <!-- <%= cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' }%> -->
+  <%= f.submit %><br>
+  <ul id="categories">
+    <%= render "category" %>
+  </ul>
+<% end %>

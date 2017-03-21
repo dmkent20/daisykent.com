@@ -4,11 +4,14 @@
         <% @posts.each do |post| %>
         <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
         <h2><%= post.title %></h2>
-        <p><%= truncate(post.content, :length => 750) %> <%= link_to '(continue)', post_path(post) %></p>
+        <div id="post-content"><%= raw(post.content) %></div>
+        ...<%= link_to '(continue)', post_path(post) %>
         <p>
             Categories:
             <% if post.categories.any? %>
-              <%= post.categories.map(&:name).join(' ') %>
+              <% post.categories.each do |cat| %>
+              <btn id="category-btn"><%= cat.name %></btn>
+              <% end %>
             <% else %>
               Uncategorized
         <% end %>

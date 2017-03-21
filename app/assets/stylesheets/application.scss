@@ -1,6 +1,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#post-content {
+  width: 600px;
+  height: 100px;
+  overflow: hidden;
+  text-align: justify;
+  display: block;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis-lastline;
+}
+
+#category-btn {
+  color: aliceblue;
+  background: rgb(148, 159, 242);
+  padding-top: 2px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 4px;
+  border-radius: 6px;
+}
+
 #page-header {
   text-align: center;
 }

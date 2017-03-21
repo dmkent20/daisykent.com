@@ -27,7 +27,7 @@ feature "Categories" do
       fill_in :post_title, with: "Cycling"
       fill_in :post_content, with: "Beautiful day to cycle"
       find(:css, "#post_category_ids_[value='1']").set(true)
-      click_on "Post!"
+      click_on 'Submit Post'
     end
     scenario 'Admin can assign a category to a post' do
       expect(page).to have_content "Lifestyle"
@@ -56,7 +56,7 @@ feature "Categories" do
       fill_in :video_title, with: "Diet"
       fill_in :video_description, with: "Doesn't matter what you eat"
       find(:css, "#video_category_ids_[value='2']").set(true)
-      click_on "Post!"
+      click_on "Submit Video"
     end
     scenario 'Admin can assign a category to a video' do
       visit videos_path

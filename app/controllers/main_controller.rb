@@ -2,7 +2,8 @@ class MainController < ApplicationController
   layout "website"
 
   def home
-    @posts = Post.all.reverse
+    deployed_posts = Post.all.map{ |post| post if post.deploy }
+    @posts = deployed_posts.reverse.select{ |post| !post.nil? }
     @post = Post.last
   end
 
@@ -13,7 +14,8 @@ class MainController < ApplicationController
   end
 
   def blog
-    @posts = Post.all.reverse
+    deployed_posts = Post.all.map{ |post| post if post.deploy }
+    @posts = deployed_posts.reverse.select{ |post| !post.nil? }
   end
 
   def portfolio

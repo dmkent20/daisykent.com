@@ -1,10 +1,13 @@
 <div class="header"><%= image_tag @post.blogheader.full.url %></div>
 <p><%= @post.title %></p>
 <p><%= raw(@post.content) %></p>
-<p> Categories:
-<% if @post.categories.any? %>
-  <%= @post.categories.map(&:name).join(' ') %>
-<% else %>
-  Uncategorized
+<p>
+    Categories:
+    <% if @post.categories.any? %>
+      <% @post.categories.each do |cat| %>
+      <btn id="category-btn"><%= cat.name %></btn>
+      <% end %>
+    <% else %>
+      Uncategorized
 <% end %>
- </p>
+</p>

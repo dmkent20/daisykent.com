@@ -1,6 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.deployed {
+  color: green;
+}
+
+.undeployed {
+  color: red;
+}
+
 #post-content {
   width: 600px;
   height: 100px;

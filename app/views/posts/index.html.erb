@@ -3,7 +3,7 @@
       <% if @posts.any? %>
         <% @posts.each do |post| %>
         <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
-        <h2><%= post.title %></h2>
+        <h2><%= post.title %></h2></p>
         <div id="post-content"><%= raw(post.content) %></div>
         ...<%= link_to '(continue)', post_path(post) %>
         <p>
@@ -16,6 +16,7 @@
               Uncategorized
         <% end %>
         </p>
+        <p><%= post.deploy ? "Deployed" : "Not deployed" %></p>
         <p>
             <%= link_to 'Review', post_path(post) %>
             <%= link_to 'Edit', edit_post_path(post) %>

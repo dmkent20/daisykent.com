@@ -1,5 +1,5 @@
 <div class="header"><%= image_tag @post.blogheader.full.url %></div>
-<p><%= @post.title %><%= render partial: "deploy_btn" %></p>
+<%= @post.title %><%= render partial: "deploy_btn" %>
 <p><%= raw(@post.content) %></p>
 <p> Categories:
 <% if @post.categories.any? %>
@@ -8,5 +8,3 @@
   Uncategorized
 <% end %>
  </p>
-
-<% console %>

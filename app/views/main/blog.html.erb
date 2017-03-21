@@ -1,9 +1,18 @@
-<% if @posts.any? %>
-  <% @posts.each do |post| %>
-    <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
-    <h2><%= post.title %></h2>
-    <p><%= post.content %></p>
-  <% end %>
-<% else %>
-  <p> There are currently no posts :disappointed: </p>
-<% end %>
+<div class="container">
+    <% if @posts.any? %>
+    <div class="row">
+        <% @posts.each do |post| %>
+            <div id="content" class="col-sm-4">
+                <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
+                <h2><%= post.title %></h2>
+                <p><%= raw(post.content) %>
+                    <%= link_to '(continue)', 'blogpost/' + post.id.to_s %></p>
+            </div>
+        <% end %>
+    </div>
+    <% else %>
+    <p>
+        There are currently no posts :disappointed:
+    </p>
+    <% end %>
+</div>

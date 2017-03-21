@@ -1,1 +1,5 @@
-<%= link_to('deploy', deploy_post_path(@post), id: 'deploy', remote: true, method: :post) %>
+<% if @post.deploy %>
+  <%= link_to('Deployed', deploy_post_path(@post), id: 'deploy', class: 'deployed', remote: true, method: :post) %>
+<% else %>
+  <%= link_to('Not deployed', deploy_post_path(@post), id: 'deploy', class: 'undeployed', remote: true, method: :post) %>
+<% end %>

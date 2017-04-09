@@ -9,7 +9,13 @@
         <%= video.categories.map(&:name).join(' ') %>
       <% else %>
         Uncategorized
-      <% end %>  
+      <% end %>
+    </p>
+    <p><% if video.deploy %>
+        <div class="deployed bg-primary">Deployed</div>
+        <% else %>
+        <div class="undeployed bg-primary">Undeployed</div>
+        <% end %>
     </p>
     <p>
       <%= link_to 'Review', video_path(video) %>

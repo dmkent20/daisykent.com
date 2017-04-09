@@ -14,14 +14,16 @@ class MainController < ApplicationController
   end
 
   def blog
-    deployed_posts = Post.all.map{ |post| post if post.deploy }
-    @posts = deployed_posts.reverse.select{ |post| !post.nil? }
+    deployed_posts = Post.all.select{ |post| post if post.deploy }
+    @posts = deployed_posts.reverse
   end
 
   def portfolio
   end
 
   def videos
+    deployed_videos = Video.all.select{ |video| video if video.deploy}
+    @videos = deployed_videos.reverse
   end
 
   def blogpost

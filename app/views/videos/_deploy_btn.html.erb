@@ -1,0 +1,5 @@
+<% if @video.deploy %>
+  <%= link_to('Deployed', deploy_video_path(@video), id: 'deploy', class: 'deployed btn', remote: true, method: :post) %>
+<% else %>
+  <%= link_to('Undeployed', deploy_video_path(@video), id: 'deploy', class: 'undeployed btn', remote: true, method: :post) %>
+<% end %>

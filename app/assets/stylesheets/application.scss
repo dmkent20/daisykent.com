@@ -1,6 +1,59 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$btncolor: rgba(255, 255, 255, 0.69);
+$deployedbtncolor: seagreen;
+$undeployedbtncolor: darkred;
+$categorybtncolor: aliceblue;
+
+.admin-body {
+background-color: lightgrey;
+}
+
+.btn {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 2px;
+  border-radius: 6px;
+  color: $btncolor;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.btn:hover {
+  color: ghostwhite;
+  transition: all 0.2s ease;
+}
+
+.deployed {
+  background-color: $deployedbtncolor;
+}
+
+.undeployed {
+  background-color: $undeployedbtncolor;
+}
+
+#post-content {
+  // width: 600px;
+  height: 100px;
+  overflow: hidden;
+  text-align: justify;
+  display: block;
+  // text-overflow: ellipsis;
+  // text-overflow: ellipsis-lastline;
+}
+
+#category-btn {
+  color: aliceblue;
+  background: rgb(148, 159, 242);
+  padding-top: 2px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 4px;
+  border-radius: 6px;
+}
+
 #page-header {
   text-align: center;
 }

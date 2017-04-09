@@ -30,9 +30,9 @@ feature 'posts' do
     scenario 'prompts admin to fill out a form, then displays new post' do
       admin_sign_in
       visit '/admin/posts'
-      click_link 'Create new post'
+      click_link 'Create Post'
       fill_in 'Title', with: 'Gucci Bag'
-      click_button 'Post!'
+      click_button 'Submit Post'
       expect(page).to have_content 'Gucci Bag'
       expect(current_path).to include '/admin/posts/'
     end
@@ -84,14 +84,28 @@ feature 'posts' do
 
   context 'deleting posts' do
 
-    before { Post.create title: 'Hello Kitty', content: 'So cute' }
+    before { admin_sign_in
+      Post.create title: 'Hello Kitty', content: 'So cute', id: 2 }
 
     scenario 'admin can remove a post' do
-      admin_sign_in
       visit '/admin/posts'
       click_link 'Remove'
       expect(page).not_to have_content 'Hello Kitty'
       expect(page).to have_content 'Post successfully removed'
     end
   end
+
+  # context 'Deploying posts:' do
+  #
+  #   before {admin_sign_in}
+  #   let!(:kfc){Post.create title: 'KFC', content: 'So bad, but so good', id: 3}
+  #
+  #   scenario 'admin can deploy a post' do
+  #     visit post_path(kfc.id)
+  #     click_link 'deploy'
+  #     visit blog_path
+  #     expect(page).to have_content 'KFC'
+  #     expect(page).to have_content 'So bad, but so good'
+  #   end
+  # end
 end

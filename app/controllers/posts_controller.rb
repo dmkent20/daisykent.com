@@ -46,6 +46,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def deploy
+    @post = Post.find(params[:id])
+    status = @post.deploy
+    @post.update_attribute(:deploy, !status)
+    respond_to do |format|
+      if @post.save
+        format.js { render "_deploy.js" }
+      else
+        flash[:notice] = "Something went wrong :s"
+      end
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -57,6 +70,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :blogheader, {category_ids: []})
+    params.require(:post).permit(:title, :content, :blogheader, {category_ids: []}, :deploy)
   end
 end

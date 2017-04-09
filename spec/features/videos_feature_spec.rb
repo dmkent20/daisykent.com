@@ -33,7 +33,7 @@ feature 'videos' do
       click_link 'Create new video'
       fill_in 'Title', with: 'Gucci Bag'
       fill_in 'Ytlink', with: 'iRXJXaLV0n4'
-      click_button 'Post!'
+      click_button 'Submit Video'
       expect(page).to have_content 'Gucci Bag'
       expect(current_path).to eq "/admin/videos/#{Video.last.id}"
     end
@@ -43,7 +43,7 @@ feature 'videos' do
       visit '/admin/videos'
       click_link 'Create new video'
       fill_in 'Title', with: 'Cute cats'
-      click_button 'Post!'
+      click_button 'Submit Video'
       expect(page).to have_content 'Please enter a valid link and title'
       expect(page).not_to have_content 'Cute cats'
     end

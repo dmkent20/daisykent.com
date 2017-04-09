@@ -1,29 +1,42 @@
-<div class="container">
-    <div class="content">
-      <% if @posts.any? %>
+<div class="row">
+    <div class="col-sm-8 col-md-6">
+        <% if @posts.any? %>
         <% @posts.each do |post| %>
-        <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
-        <h2><%= post.title %></h2>
-        <p><%= truncate(post.content, :length => 750) %> <%= link_to '(continue)', post_path(post) %></p>
-        <p>
-            Categories:
-            <% if post.categories.any? %>
-              <%= post.categories.map(&:name).join(' ') %>
-            <% else %>
-              Uncategorized
+        <div class="thumbnail">
+            <div class="header"><%= image_tag post.blogheader.thumb.url %></div>
+            <div class="caption">
+                <h2><%= post.title %></h2>
+                <div id="post-content"><%= raw(post.content) %></div>
+                ...<%= link_to '(continue)', post_path(post) %>
+                <p>
+                    Categories:
+                    <% if post.categories.any? %>
+                    <% post.categories.each do |cat| %>
+                    <btn id="category-btn"><%= cat.name %></btn>
+                    <% end %>
+                <% else %>
+                    Uncategorized
+                    <% end %>
+                </p>
+                <p><% if post.deploy %>
+                    <div class="deployed bg-primary">Deployed</div>
+                <% else %>
+                    <div class="undeployed bg-primary">Undeployed</div>
+                    <% end %>
+                </p>
+                <p>
+                    <%= link_to 'Review', post_path(post) %>
+                    <%= link_to 'Edit', edit_post_path(post) %>
+                    <%= link_to 'Remove', post_path(post), method: :delete %>
+                </p>
+            </div>
+        </div>
         <% end %>
-        </p>
-        <p>
-            <%= link_to 'Review', post_path(post) %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Remove', post_path(post), method: :delete %>
-        </p>
-        <% end %>
-      <% else %>
+    <% else %>
         <p>
             Time to write your first post :D
         </p>
-      <% end %>
+        <% end %>
         <a href='<%= new_post_path %>'>Create new post</a>
     </div>
 </div>

@@ -46,6 +46,19 @@ class VideosController < ApplicationController
     end
   end
 
+  def deploy
+    @video = Video.find(params[:id])
+    status = @video.deploy
+    @video.update_attribute(:deploy, !status)
+    respond_to do |format|
+      if @video.save
+        format.js { render "_deploy.js" }
+      else
+        flash[:notice] = "Something went wrong :s"
+      end
+    end
+  end
+
   def destroy
     @video = Video.find(params[:id])
     @video.destroy

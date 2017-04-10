@@ -47,5 +47,9 @@
                 </div>
             </div>
             <%= javascript_include_tag 'admin_menu' %>
+
+            <% if Rails.env.development? %>
+              <% console %>
+            <% end %>
         </body>
     </html>

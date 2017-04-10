@@ -26,17 +26,17 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @category = Category.new
     @categories = Category.all
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     params[:post][:category_ids] ||=[]
     if @post.update(post_params)
       redirect_to post_path(@post)
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   end
 
   def deploy
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     status = @post.deploy
     @post.update_attribute(:deploy, !status)
     respond_to do |format|
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @post.destroy
     flash[:notice] = 'Post successfully removed'
 
@@ -70,6 +70,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :blogheader, {category_ids: []}, :deploy)
+    params.require(:post).permit(:title, :subject, :content, :blogheader, {category_ids: []}, :deploy)
   end
 end

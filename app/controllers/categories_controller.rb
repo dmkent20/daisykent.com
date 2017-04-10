@@ -2,8 +2,8 @@ class CategoriesController < ApplicationController
 
   def finder
     if @category.creator_id != ""
-      @post = Post.find(@category.creator_id)
-      @video = Post.find(@category.creator_id)
+      @post = Post.friendly.find(@category.creator_id)
+      @video = Video.find(@category.creator_id)
     else
       @post = Post.new
       @video = Video.new

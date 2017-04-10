@@ -2,8 +2,8 @@ class MainController < ApplicationController
   layout "website"
 
   def home
-    deployed_posts = Post.all.map{ |post| post if post.deploy }
-    @posts = deployed_posts.reverse.select{ |post| !post.nil? }
+    deployed_posts = Post.all.select{ |post| post if post.deploy }
+    @posts = deployed_posts.reverse
     @post = Post.last
   end
 
@@ -14,7 +14,10 @@ class MainController < ApplicationController
   end
 
   def blog
-    deployed_posts = Post.all.select{ |post| post if post.deploy }
+    deployed_posts = Post.all.select{ |post| post if post.deploy}
+    if params[:subject]
+      deployed_posts = deployed_posts.select{ |post| post if params[:subject] == post.subject}
+    end
     @posts = deployed_posts.reverse
   end
 
@@ -27,6 +30,6 @@ class MainController < ApplicationController
   end
 
   def blogpost
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 end

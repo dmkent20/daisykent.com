@@ -3,6 +3,8 @@
   <%= f.file_field :blogheader %><br>
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>
+  <%= label_tag "subject_lifestyle", "lifestyle" %>
+  <%= check_box_tag "post[subject][]", "lifestyle", id: "subject_lifestyle" %><br>
   <%= f.label :content %><br>
   <%= f.cktext_area :content, class: 'ckeditor', ckeditor: { language: 'gb'} %><br>
   <!-- <%= cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' }%> -->

@@ -6,18 +6,22 @@ Rails.application.routes.draw do
   root 'main#home'
 
   get 'home' => 'main#home'
+  get 'index', to: redirect('/home')
 
   get 'about' => 'main#about'
 
   get 'contact' => 'main#contact'
 
   get 'blog' => 'main#blog'
+  get 'posts', to: redirect('/blog')
 
   get 'portfolio' => 'main#portfolio'
 
   get 'vlog' => 'main#videos'
+  get 'videos', to: redirect('/vlog')
 
   get 'blogpost/:id' => 'main#blogpost'
+  get 'blog/:id', to: redirect('/blogpost/%{id}')
 
   get 'admin', to: redirect('/admin/posts')
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'main#home'
 
   get 'home' => 'main#home'
+  get 'index', to: redirect('/home')
 
   get 'about' => 'main#about'
 

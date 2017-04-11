@@ -1,13 +1,29 @@
 <%= form_for @post do |f| %>
-  <%= f.label :blogheader %><br>
-  <%= f.file_field :blogheader %><br>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %><br>
-  <%= f.label :content %><br>
-  <%= f.cktext_area :content, class: 'ckeditor', ckeditor: { language: 'gb'} %><br>
-  <!-- <%= cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' }%> -->
-  <%= f.submit %><br>
-  <ul id="categories">
-    <%= render "category" %>
-  </ul>
+<%= f.label :blogheader %><br>
+<div id="photo_attachment_container">
+    <div class="wrapper">
+        <%= f.file_field :blogheader, id: "post_blogheader", onchange:"readURL(this);" %>
+    </div>
+    <div class="button">
+      <img id="img_prev" src="#" alt="UPLOAD IMAGE"/>
+    </div>
+</div>
+<!-- <div class="image-preview">
+    <img id="img_prev" src="#" alt="your image"/>
+</div><br> -->
+<%= f.label :title %><br>
+<%= f.text_field :title %><br>
+<%= label_tag "subject_lifestyle", "lifestyle" %>
+<%= check_box_tag "post[subject][]", "lifestyle", id: "subject_lifestyle" %><br>
+<%= f.label :content %><br>
+<%= f.cktext_area :content, class: 'ckeditor', ckeditor: { language: 'gb'} %><br>
+<%= f.label :author %>
+<%= f.text_field :author, value: "Daisy Kent" %><br>
+<%= f.label :publisher %>
+<%= f.text_field :publisher, value: "Daisy Kent" %><br>
+<!-- <%= cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' }%> -->
+<%= f.submit %><br>
+<%= render "category" %>
 <% end %>
+
+<%= javascript_include_tag 'image_preview' %>

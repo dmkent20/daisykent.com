@@ -1,13 +1,6 @@
 <div class="header"><%= image_tag @post.blogheader.full.url %></div>
 <p><%= @post.title %></p>
 <p><%= raw(@post.content) %></p>
-<p>
-    Categories:
-    <% if @post.categories.any? %>
-      <% @post.categories.each do |cat| %>
-      <btn id="category-btn"><%= cat.name %></btn>
-      <% end %>
-    <% else %>
-      Uncategorized
+<% content_for :head do %>
+     <%= display_meta_tags %>
 <% end %>
-</p>

@@ -1,8 +1,13 @@
+
+<label for="meta_tagging">Meta Tags:</label>
+
+<ul id="categories">
 <% for category in @categories %>
 <div>
   <label for='category_name'>
   <%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
   <%= category.name %></label>
-  <%= link_to "x", category, remote: true, method: :delete, data: {confirm: "Are you sure?"}  %>
+  <%= link_to "x", category, remote: true, method: :delete, data: {confirm: "Are you sure? Deleting this tags will permanently remove it from all posts."}  %>
 </div>
 <% end %>
+</ul>

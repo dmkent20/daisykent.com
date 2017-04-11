@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DaisykentCom</title>
+        <title>DaisyKent.Com</title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,8 +11,8 @@
     <body>
         <section class="jumbotron text-center">
             <div class="container">
-                    <h1 class="jumbotron-heading">
-                        <a href="#">Daisy Kent</a>
+                <h1 class="jumbotron-heading">
+                    <a href="#">Daisy Kent</a>
                 </h1>
             </div>
         </section>
@@ -29,8 +29,22 @@
                         <%= link_to 'Portfolio', portfolio_path %>
                     </div>
                 </div>
+                <% if params[:action] == "blog" || params[:action] == "videos" %>
+                <div class="row">
+                    <div id="content" class="">
+                        <%= link_to 'Lifestyle', blog_path(subject: "lifestyle") %>
+                        <%= link_to 'Beauty', about_path %>
+                        <%= link_to 'Fashion', blog_path %>
+                        <%= link_to 'Food', vlog_path %>
+                    </div>
+                </div>
+                <% end %>
             </div>
         </div>
+
+        <% if Rails.env.development? %>
+          <% console %>
+        <% end %>
 
         <div class="row">
             <div class="container">

@@ -1,3 +1,6 @@
 <div class="header"><%= image_tag @post.blogheader.full.url %></div>
 <p><%= @post.title %></p>
 <p><%= raw(@post.content) %></p>
+<% content_for :head do %>
+     <%= display_meta_tags %>
+<% end %>

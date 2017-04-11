@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410203116) do
+ActiveRecord::Schema.define(version: 20170410214504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,12 +77,17 @@ ActiveRecord::Schema.define(version: 20170410203116) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "blogheader"
-    t.boolean  "deploy",     default: false
+    t.boolean  "deploy",           default: false
     t.string   "subject"
     t.string   "slug"
+    t.string   "meta_description"
+    t.text     "keywords"
+    t.string   "canonical"
+    t.string   "author"
+    t.string   "publisher"
   end
 
   create_table "videos", force: :cascade do |t|

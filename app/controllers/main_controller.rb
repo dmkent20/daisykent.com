@@ -31,5 +31,13 @@ class MainController < ApplicationController
 
   def blogpost
     @post = Post.friendly.find(params[:id])
+    set_meta_tags(
+      title: @post.title,
+      description: @post.content,
+      keywords: @post.categories.map{ |c| c.name }.join(", "),
+      canonical: "http://daisykent.com/blogpost/" + @post.friendly_id,
+      author: @post.author,
+      publisher: @post.publisher
+    )
   end
 end

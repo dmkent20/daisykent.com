@@ -13,15 +13,12 @@ Rails.application.routes.draw do
   get 'contact' => 'main#contact'
 
   get 'blog' => 'main#blog'
-  get 'posts', to: redirect('/blog')
 
   get 'portfolio' => 'main#portfolio'
 
   get 'vlog' => 'main#videos'
-  get 'videos', to: redirect('/vlog')
 
   get 'blogpost/:id' => 'main#blogpost'
-  get 'blog/:id', to: redirect('/blogpost/%{id}')
 
   get 'admin', to: redirect('/admin/posts')
 

@@ -61,13 +61,13 @@ feature 'posts' do
       visit '/admin/posts'
       click_link 'Review'
       expect(page).to have_content 'Gucci Bag'
-      expect(current_path).to eq "/admin/posts/#{gucci.id}"
+      expect(current_path).to eq "/admin/posts/#{gucci.friendly_id}"
     end
   end
 
   context 'editing posts' do
 
-    before { Post.create title: 'Gucci Bag', content: 'So pretty', id: 1 }
+    let!(:gucci){ Post.create title: 'Gucci Bag', content: 'So pretty', id: 1 }
 
     scenario 'lets admin edit a post' do
       admin_sign_in
@@ -76,7 +76,7 @@ feature 'posts' do
       fill_in 'Title', with: 'Suede Gucci Bag'
       fill_in 'Content', with: 'So beautiful but costs $$$'
       click_button 'Update Post'
-      expect(current_path).to eq '/admin/posts/1'
+      expect(current_path).to eq "/admin/posts/#{gucci.friendly_id}"
       expect(page).to have_content 'Suede Gucci Bag'
       expect(page).to have_content 'So beautiful but costs $$$'
     end

@@ -17,9 +17,11 @@
 * Admin area for posting and uploading seperate from viewer pages
 * Creating assigning and removing categories without refresh
 * Image upload
+* SEO friendly (meta tagging and friendly urls)
+* Friendly urls
+* Text formatter
 
 ### To be implemented
-* Text formatter
 * Category filtering
 * Search bar
 * Recording data with Google Analytics and custon click count info
@@ -28,7 +30,6 @@
 * Message blog author button
 
 ## Technologies
-
 * Ruby version: 2.3.0
 * Ruby on Rails 5.0
 * PostgreSQL

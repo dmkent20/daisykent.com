@@ -5,11 +5,15 @@
     <p><%= video.description %></p>
     <iframe id="ytplayer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/<%= video.ytlink %>" frameborder="0"></iframe>
     <p> Categories:
-      <% if video.categories.any? %>
-        <%= video.categories.map(&:name).join(' ') %>
+      <% if video.subjects.any? %>
+        <%= video.subjects.map(&:name).join(' ') %>
       <% else %>
         Uncategorized
       <% end %>
+    </p>
+    <p>
+      <% time = video.created_at %>
+      <%= time.strftime("%A, #{time.day.ordinalize} of %B  %Y") %>
     </p>
   <% end %>
 <% else %>

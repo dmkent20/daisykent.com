@@ -857,6 +857,10 @@
         1,
         null
       ],
+      "/home/frunez/Desktop/daisy_blog/daisykent.com/app/helpers/subjects_helper.rb": [
+        1,
+        null
+      ],
       "/home/frunez/Desktop/daisy_blog/daisykent.com/app/helpers/videos_helper.rb": [
         1,
         null,
@@ -1169,6 +1173,7 @@
         1,
         1,
         1,
+        1,
         null,
         1,
         null,
@@ -1249,6 +1254,7 @@
         6,
         6,
         6,
+        6,
         null,
         null,
         1,
@@ -1270,6 +1276,7 @@
         null,
         null,
         1,
+        2,
         2,
         2,
         2,
@@ -1314,6 +1321,13 @@
         null,
         null
       ],
+      "/home/frunez/Desktop/daisy_blog/daisykent.com/app/models/subject.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
       "/home/frunez/Desktop/daisy_blog/daisykent.com/app/controllers/videos_controller.rb": [
         1,
         1,
@@ -1326,9 +1340,11 @@
         5,
         5,
         5,
+        5,
         null,
         null,
         1,
+        5,
         5,
         5,
         5,
@@ -1347,6 +1363,7 @@
         null,
         null,
         1,
+        5,
         5,
         5,
         5,
@@ -1393,6 +1410,7 @@
       "/home/frunez/Desktop/daisy_blog/daisykent.com/app/models/video.rb": [
         1,
         1,
+        1,
         null,
         1,
         1,
@@ -1405,6 +1423,6 @@
         null
       ]
     },
-    "timestamp": 1491873940
+    "timestamp": 1492014278
   }
 }

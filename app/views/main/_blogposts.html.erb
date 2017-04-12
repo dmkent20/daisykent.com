@@ -8,6 +8,10 @@
             <%= raw(post.content) %>
             <%= link_to '(continue)', 'blogpost/' + post.friendly_id.to_s %>
         </p>
+        <p>
+          <% time = post.created_at %>
+          <%= time.strftime("%A, #{time.day.ordinalize} of %B  %Y") %>
+        </p>
     </div>
     <% end %>
 </div>

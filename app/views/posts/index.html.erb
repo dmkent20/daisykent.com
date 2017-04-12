@@ -9,14 +9,26 @@
                 <div id="post-content"><%= raw(post.content) %></div>
                 ...<%= link_to '(continue)', post_path(post) %>
                 <p>
-                    Categories:
+                    Subject:
+                    <% if post.subjects.any? %>
+                      <%= post.subjects.map(&:name).join(' ') %>
+                    <% else %>
+                      Unassociated
+                    <% end %>
+                </p>
+                <p>
+                    Meta Tags:
                     <% if post.categories.any? %>
-                    <% post.categories.each do |cat| %>
-                    <btn id="category-btn"><%= cat.name %></btn>
+                      <% post.categories.each do |cat| %>
+                        <btn id="category-btn"><%= cat.name %></btn>
+                      <% end %>
+                    <% else %>
+                      Non found
                     <% end %>
-                <% else %>
-                    Uncategorized
-                    <% end %>
+                </p>
+                <p>
+                    <% time = post.created_at %>
+                    Post created on <%= time.strftime("%A, #{time.day.ordinalize} of %B  %Y") %>
                 </p>
                 <p><% if post.deploy %>
                     <div class="deployed bg-primary">Deployed</div>

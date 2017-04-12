@@ -1,12 +1,24 @@
 <%= form_for @video do |f| %>
-  <%= f.label :ytlink %>
-  <%= f.text_field :ytlink %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.submit %>
-  <ul id="categories">
-    <%= render 'category' %>
-  </ul>
-<% end %>
+  <%= f.label :ytlink %><br>
+  <%= f.text_field :ytlink %><br>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %><br>
+  <%= f.label :author %><br>
+  <%= f.text_field :author, value: "Daisy Kent" %><br>
+  <%= f.label :publisher %><br>
+  <%= f.text_field :publisher, value: "Daisy Kent" %><br>
+  <%= f.label "Category" %><br />
+  <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+  <% end %>
+  <%= f.submit %><br>
+  <p>
+      <label for="meta_tagging">Meta Tags:</label>
+      <%= render partial: 'category' %>
+  </p>
+  <% end %>

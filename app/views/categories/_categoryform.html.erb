@@ -1,6 +1,5 @@
 <%= form_for @category, remote: true do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "Meta Tag" %>
   <%= f.hidden_field :created_from, value: params[:controller] %>
   <%= f.hidden_field :creator_id, value: params[:id] %>
   <%= f.submit "Create Meta Tag" %>

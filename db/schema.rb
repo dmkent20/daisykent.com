@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410214504) do
+ActiveRecord::Schema.define(version: 20170411181342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20170410214504) do
     t.string   "name",         null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "created_from", null: false
-    t.string   "creator_id",   null: false
+    t.string   "created_from"
+    t.string   "creator_id"
   end
 
   create_table "categories_posts", id: false, force: :cascade do |t|
@@ -90,13 +90,34 @@ ActiveRecord::Schema.define(version: 20170410214504) do
     t.string   "publisher"
   end
 
+  create_table "posts_subjects", id: false, force: :cascade do |t|
+    t.integer "subject_id", null: false
+    t.integer "post_id",    null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects_videos", id: false, force: :cascade do |t|
+    t.integer "subject_id", null: false
+    t.integer "video_id",   null: false
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.text     "ytlink",                      null: false
-    t.boolean  "deploy",      default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.text     "ytlink",                           null: false
+    t.boolean  "deploy",           default: false
+    t.string   "meta_description"
+    t.text     "keywords"
+    t.string   "canonical"
+    t.string   "author"
+    t.string   "publisher"
   end
 
 end

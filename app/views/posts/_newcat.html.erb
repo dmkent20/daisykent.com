@@ -1,0 +1,5 @@
+<div id="<%= Category.last.id %>" class="">
+<%= check_box_tag "post[category_ids][]", Category.last.id, @post.categories.include?(Category.last), {:id => dom_id(Category.last, dom_id(@post)) } %>
+<%= Category.last.name %>
+<%= link_to "x", Category.last, remote: true, method: :delete, data: {confirm: "Are you sure? Deleting this tags will permanently remove it from all posts."}  %>
+</div>

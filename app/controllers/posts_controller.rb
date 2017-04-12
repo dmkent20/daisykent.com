@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @category = Category.new
     @categories = Category.all
+    @subjects = Subject.all
   end
 
   def create
@@ -33,6 +34,7 @@ class PostsController < ApplicationController
     @post = Post.friendly.find(params[:id])
     @category = Category.new
     @categories = Category.all
+    @subjects = Subject.all
   end
 
   def update
@@ -70,6 +72,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :subject, :content, :blogheader, {category_ids: []}, :deploy, :meta_description, :keywords, :canonical, :author, :publisher)
+    params.require(:post).permit(:title, :subject, :content, :blogheader, {category_ids: []}, {subject_ids: []}, :deploy, :meta_description, :keywords, :canonical, :author, :publisher)
   end
 end

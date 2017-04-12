@@ -9,12 +9,14 @@ class VideosController < ApplicationController
     @video = Video.new
     @category = Category.new
     @categories = Category.all
+    @subjects = Subject.all
   end
 
   def create
     @video = Video.create(video_params)
     @category = Category.new
     @categories = Category.all
+    @subjects = Subject.all
     params[:video][:category_ids] ||=[]
     if @video.save
       redirect_to video_path(@video)
@@ -33,6 +35,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @category = Category.new
     @categories = Category.all
+    @subjects = Subject.all
   end
 
   def update
@@ -69,6 +72,6 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:title, :description, :ytlink, {category_ids: []})
+    params.require(:video).permit(:title, :description, :ytlink, {category_ids: []}, {subject_ids: []}, :deploy, :meta_description, :keywords, :canonical, :author, :publisher)
   end
 end

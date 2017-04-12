@@ -64,6 +64,18 @@ background-color: lightgrey;
   font-weight: bold;
 }
 
+input {
+  background-color: aliceblue;
+  border-radius: 3px;
+}
+
+textarea {
+  background-color: aliceblue;
+  border-radius: 3px;
+  height: 200px;
+  width: 600px;
+}
+
 .btn:hover {
   color: ghostwhite;
   transition: all 0.2s ease;

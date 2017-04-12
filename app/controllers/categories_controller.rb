@@ -2,11 +2,17 @@ class CategoriesController < ApplicationController
 
   def finder
     if @category.creator_id != ""
-      @post = Post.friendly.find(@category.creator_id)
-      @video = Video.find(@category.creator_id)
+      if @category.created_from == "posts"
+        @post = Post.friendly.find(@category.creator_id)
+      else
+        @video = Video.find(@category.creator_id)
+      end
     else
-      @post = Post.new
-      @video = Video.new
+      if @category.created_from == "posts"
+        @post = Post.new
+      else
+        @video = Video.new
+      end
     end
   end
 
@@ -35,7 +41,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     @category = Category.find(params[:id])
     @category.destroy
-    flash[:notice] = 'Post successfully removed'
+    flash[:notice] = 'Tag successfully removed'
     respond_to do |format|
         format.js { render "_removecategory.js" }
     end

@@ -6,9 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create(name: 'Lifestyle')
-Category.create(name: 'Food')
-Category.create(name: 'Health')
-Category.create(name: 'Fasion')
+Category.create(name: 'Lifestyle', created_from: 'posts', creator_id: '1')
+Category.create(name: 'Food', created_from: 'posts', creator_id: '1')
+Category.create(name: 'Health', created_from: 'posts', creator_id: '1')
+Category.create(name: 'Fasion', created_from: 'posts', creator_id: '1')
+
+Subject.create(name: 'Lifestyle')
+Subject.create(name: 'Food')
+Subject.create(name: 'Health')
+Subject.create(name: 'Fasion')
 
 Admin.create(email: "test@test.com", password: 'test')

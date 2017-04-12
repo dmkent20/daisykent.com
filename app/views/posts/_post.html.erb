@@ -5,7 +5,7 @@
         <%= f.file_field :blogheader, id: "post_blogheader", onchange:"readURL(this);" %>
     </div>
     <div class="button">
-      <img id="img_prev" src="#" alt="UPLOAD IMAGE"/>
+        <img id="img_prev" src="#" alt="UPLOAD IMAGE"/>
     </div>
 </div>
 <!-- <div class="image-preview">
@@ -22,8 +22,18 @@
 <%= f.label :publisher %>
 <%= f.text_field :publisher, value: "Daisy Kent" %><br>
 <!-- <%= cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' }%> -->
+<%= f.label "Category" %><br/>
+<%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name do |b| %>
+<div class="collection-check-box">
+    <%= b.check_box %>
+    <%= b.label %>
+</div>
+<% end %>
 <%= f.submit %><br>
-<%= render "category" %>
+<p>
+    <label for="meta_tagging">Meta Tags:</label>
+    <%= render partial: 'category' %>
+</p>
 <% end %>
 
 <%= javascript_include_tag 'image_preview' %>

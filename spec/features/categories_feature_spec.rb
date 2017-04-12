@@ -26,7 +26,7 @@ feature "Categories" do
       visit new_post_path
       fill_in :post_title, with: "Cycling"
       fill_in :post_content, with: "Beautiful day to cycle"
-      find(:css, "#post_category_ids_[value='1']").set(true)
+      find(:css, "#1").set(true)
       click_on 'Submit Post'
     end
     scenario 'Admin can assign a category to a post' do
@@ -35,7 +35,7 @@ feature "Categories" do
     scenario 'Admin can unassign a category when editing' do
       visit posts_path
       click_link "Edit"
-      find(:css, "#post_category_ids_[value='1']").set(false)
+      find(:css, "#1").set(false)
       click_on "Update Post"
       expect(page).not_to have_content "Lifestyle"
     end

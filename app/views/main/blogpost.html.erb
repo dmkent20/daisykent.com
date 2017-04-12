@@ -1,6 +1,10 @@
 <div class="header"><%= image_tag @post.blogheader.full.url %></div>
 <p><%= @post.title %></p>
 <p><%= raw(@post.content) %></p>
+<p>
+  <% time = @post.created_at %>
+  <%= time.strftime("%A, #{time.day.ordinalize} of %B  %Y") %>
+</p>
 <% content_for :head do %>
      <%= display_meta_tags %>
 <% end %>

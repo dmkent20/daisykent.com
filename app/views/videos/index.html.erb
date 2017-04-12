@@ -4,12 +4,16 @@
     <h2><%= video.title %></h2>
     <p><%= video.description %></p>
     <iframe id="ytplayer" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/<%= video.ytlink %>" frameborder="0"></iframe>
-    <p> Categories:
+    <p> Meta Tags:
       <% if video.categories.any? %>
         <%= video.categories.map(&:name).join(' ') %>
       <% else %>
-        Uncategorized
+        Non found
       <% end %>
+    </p>
+    <p>
+        <% time = video.created_at %>
+        Video uploaded on <%= time.strftime("%A, #{time.day.ordinalize} of %B  %Y") %>
     </p>
     <p><% if video.deploy %>
         <div class="deployed bg-primary">Deployed</div>

@@ -8,7 +8,7 @@
 
 ## Features
 * Blog
-* Seperate admin area for creating posts
+* Seperate admin area for creating posts (devise)
 * Viewer pages: Home, About, Blog, Videos, Contact, Postfolio
 * Image upload with carrierwave
 * Changeable header images
@@ -16,13 +16,13 @@
 * Creating and viewing posts
 * Admin area for posting and uploading seperate from viewer pages
 * Creating assigning and removing categories without refresh
-* Image upload
-* SEO friendly (meta tagging and friendly urls)
-* Friendly urls
-* Text formatter
+* SEO friendly (meta tagging and friendly urls) (meta-tags)
+* Friendly urls (friendly_ids)
+* Text formatter (ckeditor)
+* Subject selection for posts and videos
+* pagination (with will_paginate)
 
 ### To be implemented
-* Category filtering
 * Search bar
 * Recording data with Google Analytics and custon click count info
 * Social Media links

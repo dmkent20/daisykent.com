@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+#pagination
+gem 'will_paginate', '~> 3.1.0'
 gem 'meta-tags'
 gem 'friendly_id', '~> 5.1.0'
 # Styling

@@ -776,6 +776,9 @@
         null,
         1
       ],
+      "/home/frunez/Desktop/daisy_blog/daisykent.com/config/initializers/will_paginate_array_fix.rb": [
+        1
+      ],
       "/home/frunez/Desktop/daisy_blog/daisykent.com/config/initializers/wrap_parameters.rb": [
         null,
         null,
@@ -1144,6 +1147,11 @@
         0,
         0,
         0,
+        0,
+        0,
+        null,
+        0,
+        0,
         null,
         0,
         null,
@@ -1153,6 +1161,14 @@
         null,
         1,
         0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
         0,
         null,
         null,
@@ -1326,6 +1342,7 @@
       "/home/frunez/Desktop/daisy_blog/daisykent.com/app/models/subject.rb": [
         1,
         1,
+        1,
         null,
         1,
         null
@@ -1426,6 +1443,6 @@
         null
       ]
     },
-    "timestamp": 1492526413
+    "timestamp": 1492538632
   }
 }

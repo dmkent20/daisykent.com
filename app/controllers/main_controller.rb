@@ -14,19 +14,32 @@ class MainController < ApplicationController
   end
 
   def blog
-    deployed_posts = Post.all.select{ |post| post if post.deploy}
     if params[:subject]
-      deployed_posts = deployed_posts.select{ |post| post if params[:subject] == post.subject}
+      subject = Subject.find_by_name(params[:subject])
+      subject_posts = subject.posts.select{ |post| post if post.deploy}
+      subject_posts_sorted = subject_posts.sort_by{|p| p.deploy_date}.reverse
+      posts_ordered_by_deploy_date = subject_posts_sorted
+    else
+      deployed_posts = Post.all.select{ |post| post if post.deploy}
+      posts_ordered_by_deploy_date = deployed_posts.sort_by{|p| p.deploy_date}.reverse
     end
-    @posts = deployed_posts.sort_by{|p| p.deploy_date}.reverse
+    @posts = posts_ordered_by_deploy_date.paginate(page: params[:page], :per_page => 10)
   end
 
   def portfolio
   end
 
-  def videos
-    deployed_videos = Video.all.select{ |video| video if video.deploy}
-    @videos = deployed_videos.sort_by{|v| v.deploy_date}.reverse
+  def vlog
+    if params[:subject]
+      subject = Subject.find_by_name(params[:subject])
+      subject_videos = subject.videos.select{ |video| video if video.deploy}
+      subject_videos_sorted = subject_videos.sort_by{|v| v.deploy_date}.reverse
+      videos_ordered_by_deploy_date = subject_videos_sorted
+    else
+      deployed_videos = Video.all.select{ |video| video if video.deploy}
+      videos_ordered_by_deploy_date = deployed_videos.sort_by{|v| v.deploy_date}.reverse
+    end
+    @videos = videos_ordered_by_deploy_date.paginate(page: params[:page], :per_page => 10)
   end
 
   def blogpost

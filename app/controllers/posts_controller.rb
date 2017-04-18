@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
@@ -73,6 +73,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :subject, :content, :blogheader, {category_ids: []}, {subject_ids: []}, :deploy, :meta_description, :keywords, :canonical, :author, :publisher)
+    params.require(:post).permit(:title, :content, :blogheader, {category_ids: []}, {subject_ids: []}, :deploy, :meta_description, :keywords, :canonical, :author, :publisher)
   end
 end

@@ -33,13 +33,13 @@
                         <%= link_to 'Portfolio', portfolio_path %>
                     </div>
                 </div>
-                <% if params[:action] == "blog" || params[:action] == "videos" %>
+                <% if params[:action] == "blog" || params[:action] == "vlog" %>
                 <div class="row">
                     <div id="content" class="">
-                        <%= link_to 'Lifestyle', blog_path(subject: "lifestyle") %>
-                        <%= link_to 'Beauty', about_path %>
-                        <%= link_to 'Fashion', blog_path %>
-                        <%= link_to 'Food', vlog_path %>
+                        <%= link_to 'Lifestyle', controller: "main", action: params[:action], subject: "Lifestyle" %>
+                        <%= link_to 'Food', controller: "main", action: params[:action], subject: "Food"%>
+                        <%= link_to 'Health', controller: "main", action: params[:action], subject: "Health"%>
+                        <%= link_to 'Fasion', controller: "main", action: params[:action], subject: "Fasion"%>
                     </div>
                 </div>
                 <% end %>

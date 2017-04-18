@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'portfolio' => 'main#portfolio'
 
-  get 'vlog' => 'main#videos'
+  get 'vlog' => 'main#vlog'
 
   get 'blogpost/:id' => 'main#blogpost'
 

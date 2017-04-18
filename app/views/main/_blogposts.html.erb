@@ -9,8 +9,8 @@
             <%= link_to '(continue)', 'blogpost/' + post.friendly_id.to_s %>
         </p>
         <p>
-          <% time = post.created_at %>
-          <%= time.strftime("%A, #{time.day.ordinalize} of %B  %Y") %>
+          <% time = post.deploy_date %>
+          <%= time.strftime("%A, #{time.day.ordinalize} of %B  %Y %H:%M") %>
         </p>
     </div>
     <% end %>
@@ -20,3 +20,4 @@
     There are currently no posts :disappointed:
 </p>
 <% end %>
+<%= will_paginate @posts, :page_links => false %>

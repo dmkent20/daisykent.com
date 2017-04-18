@@ -3,7 +3,7 @@ class MainController < ApplicationController
 
   def home
     deployed_posts = Post.all.select{ |post| post if post.deploy }
-    @posts = deployed_posts.reverse
+    @posts = deployed_posts.sort_by{|p| p.deploy_date}.reverse
     @post = Post.last
   end
 
@@ -18,7 +18,7 @@ class MainController < ApplicationController
     if params[:subject]
       deployed_posts = deployed_posts.select{ |post| post if params[:subject] == post.subject}
     end
-    @posts = deployed_posts.reverse
+    @posts = deployed_posts.sort_by{|p| p.deploy_date}.reverse
   end
 
   def portfolio
@@ -26,7 +26,7 @@ class MainController < ApplicationController
 
   def videos
     deployed_videos = Video.all.select{ |video| video if video.deploy}
-    @videos = deployed_videos.reverse
+    @videos = deployed_videos.sort_by{|v| v.deploy_date}.reverse
   end
 
   def blogpost

@@ -52,6 +52,7 @@ class PostsController < ApplicationController
     @post = Post.friendly.find(params[:id])
     status = @post.deploy
     @post.update_attribute(:deploy, !status)
+    @post.update_attribute(:deploy_date, Time.now)
     respond_to do |format|
       if @post.save
         format.js { render "_deploy.js" }

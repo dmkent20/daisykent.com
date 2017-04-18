@@ -53,6 +53,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     status = @video.deploy
     @video.update_attribute(:deploy, !status)
+    @video.update_attribute(:deploy_date, Time.now)
     respond_to do |format|
       if @video.save
         format.js { render "_deploy.js" }

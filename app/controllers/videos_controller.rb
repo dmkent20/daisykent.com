@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @videos = Video.all
+    @videos = Video.paginate(:page => params[:page], :per_page => 6)
   end
 
   def new

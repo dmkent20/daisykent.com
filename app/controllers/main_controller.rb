@@ -23,7 +23,7 @@ class MainController < ApplicationController
       deployed_posts = Post.all.select{ |post| post if post.deploy}
       posts_ordered_by_deploy_date = deployed_posts.sort_by{|p| p.deploy_date}.reverse
     end
-    @posts = posts_ordered_by_deploy_date.paginate(page: params[:page], :per_page => 10)
+    @posts = posts_ordered_by_deploy_date.paginate(page: params[:page], :per_page => 9)
   end
 
   def portfolio
@@ -39,7 +39,7 @@ class MainController < ApplicationController
       deployed_videos = Video.all.select{ |video| video if video.deploy}
       videos_ordered_by_deploy_date = deployed_videos.sort_by{|v| v.deploy_date}.reverse
     end
-    @videos = videos_ordered_by_deploy_date.paginate(page: params[:page], :per_page => 10)
+    @videos = videos_ordered_by_deploy_date.paginate(page: params[:page], :per_page => 6)
   end
 
   def blogpost

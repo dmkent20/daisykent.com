@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <%= csrf_meta_tags %>
-      <% if content_for?(:head) %>
+        <%= csrf_meta_tags %>
+        <% if content_for?(:head) %>
         <%= yield(:head) %>
-      <% else %>
+    <% else %>
         <title>DaisyKent.Com</title>
-      <% end %>
-
+        <% end %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
     <body>
         <section class="jumbotron text-center">
             <div class="container">
-                <h1 class="jumbotron-heading">
+                <h1 id="title" class="jumbotron-heading">
                     <a href="#">Daisy Kent</a>
                 </h1>
             </div>
         </section>
         <%= notice %>
-        <div class="navbar navbar-inverse bg-inverse text-center">
-            <div class="container d-flex justify-content-between">
+        <div id="nav-bar" class="navbar navbar-inverse bg-inverse text-center">
+            <div id="nav-links" class="container d-flex justify-content-between">
                 <div class="row">
                     <div id="content" class="">
-                        <%= link_to 'Home', home_path %>
-                        <%= link_to 'About', about_path %>
-                        <%= link_to 'Blog', blog_path %>
-                        <%= link_to 'Videos', vlog_path %>
-                        <%= link_to 'Contact', contact_path %>
+                        <%= link_to 'Home', home_path %> |
+                        <%= link_to 'About', about_path %> |
+                        <%= link_to 'Blog', blog_path %> |
+                        <%= link_to 'Videos', vlog_path %> |
+                        <%= link_to 'Contact', contact_path %> |
                         <%= link_to 'Portfolio', portfolio_path %>
                     </div>
                 </div>
                 <% if params[:action] == "blog" || params[:action] == "vlog" %>
                 <div class="row">
                     <div id="content" class="">
-                        <%= link_to 'Lifestyle', controller: "main", action: params[:action], subject: "Lifestyle" %>
-                        <%= link_to 'Food', controller: "main", action: params[:action], subject: "Food"%>
-                        <%= link_to 'Health', controller: "main", action: params[:action], subject: "Health"%>
-                        <%= link_to 'Fasion', controller: "main", action: params[:action], subject: "Fasion"%>
+                        <form name='form' action="<%= params[:action] %>" method='get'>
+                            <%= link_to 'Lifestyle', controller: "main", action: params[:action], subject: "Lifestyle" %> |
+                            <%= link_to 'Food', controller: "main", action: params[:action], subject: "Food"%> |
+                            <%= link_to 'Health', controller: "main", action: params[:action], subject: "Health"%> |
+                            <%= link_to 'Fasion', controller: "main", action: params[:action], subject: "Fasion"%>
+                            <div id='query' class="searchbar">
+                                <% this = params[:action] == "blog" ? "posts" : "videos" %>
+                                <% if params[:subject] %>
+                                  <input type='hidden' name='subject' value="<%= params[:subject] %>">
+                                <% end %>
+                                <input type='text' name='search' placeholder="Search <%= this %>">
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <% end %>
@@ -47,7 +56,7 @@
         </div>
 
         <% if Rails.env.development? %>
-          <% console %>
+        <% console %>
         <% end %>
 
         <div class="row">

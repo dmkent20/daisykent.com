@@ -1,3 +1,57 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a:hover {
+  text-decoration: none;
+}
+
+#title {
+  a {
+    color: rgb(224, 127, 200);
+  }
+}
+
+#nav-bar {
+  background-color: rgb(224, 127, 200);
+  border-radius: 0px;
+  border-width: 0px;
+  height: 70px;
+  color: rgba(226, 228, 245, 0.8);
+  a {
+    color: rgba(226, 228, 245, 0.8);
+  }
+  a:hover {
+    color: rgb(235, 247, 255);
+  }
+}
+
+#nav-links {
+  padding-top: 5px;
+  text-transform: uppercase;
+  line-height: 2;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#query.searchbar {
+  text-align: right;
+  float: right;
+  position:relative;
+  height: 40px;
+}
+
+input {
+  background-color: rgba(215, 226, 246, 0.5);
+  position: absolute;
+  transform: translateY(-10px);
+  right: 0;
+  height: 100%;
+  padding: 5px;
+  // margin: 2px;
+  border-width: 0px;
+  color: aliceblue;
+  i {
+
+  }
+}

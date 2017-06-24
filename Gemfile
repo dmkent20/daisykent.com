@@ -5,10 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-#pagination
+# Icons
+gem 'material_icons'
+# Searchbar gem with searchkick
+gem 'searchkick'
+# Pagination
 gem 'will_paginate', '~> 3.1.0'
+# SEO meta tags
 gem 'meta-tags'
+# Nicer search engine friendly URLs
 gem 'friendly_id', '~> 5.1.0'
 # Styling
 gem 'bootstrap-sass', '~> 3.3.6'

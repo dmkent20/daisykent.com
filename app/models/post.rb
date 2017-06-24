@@ -7,4 +7,15 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: {minimum: 1}
 
   mount_uploader :blogheader, BlogHeaderUploader
+
+  searchkick word_start: [:title]
+
+  def search_data
+    {
+      title: title,
+      content: content,
+      deploy_date: deploy_date,
+      subjects: subjects.map(&:name).join(" ")
+    }
+  end
 end

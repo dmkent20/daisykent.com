@@ -22,6 +22,12 @@
                 <ul class="sidebar-nav">
                     <h1 class="sidebar-title">ADMIN</h1>
                     <p>
+                      <% if params[:action] == "posts" || params[:action] == "videos" %>
+                        <div id='query' class="searchbar">
+                            <input type='text' name='search' placeholder="Search <%= params[:action] %>">
+                            <input type='hidden' name='subject' value="<%= params[:subject] %>">
+                        </div>
+                      <% end %>
                         <li>
                             <a href="#menu-toggle" id="menu-toggle">Toggle Menu</a>
                         </li>

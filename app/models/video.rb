@@ -4,4 +4,6 @@ class Video < ApplicationRecord
 
   validates :title, presence: true, length: {minimum: 1}
   validates :ytlink, presence: true, length: {minimum: 1}
+
+  searchkick
 end
